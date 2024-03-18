@@ -20,7 +20,7 @@ const app = express();
 
 // Correctly configured CORS middleware
 app.use(cors({
-  origin: 'https://main--teal-pony-b56b44.netlify.app',
+  origin: 'https://teal-pony-b56b44.netlify.app',
   credentials: true, // If your frontend sends credentials like cookies or basic auth
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
 }));
