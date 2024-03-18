@@ -18,11 +18,17 @@ import { decodeUserFromToken } from './middleware/auth.js';
 // create the express app
 const app = express();
 
+const corsOptions = {
+  origin: 'https://main--teal-pony-b56b44.netlify.app', // Adjust to your frontend's domain
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
 
 // basic middleware
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
+app.use(cors(corsOptions));
 
 // mount imported routes
 app.use('/api/profiles', profilesRouter);
