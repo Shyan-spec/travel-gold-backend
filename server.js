@@ -23,6 +23,7 @@ app.use(cors({
   origin: process.env.CORS_ORIGIN, // This dynamically sets the allowed origin
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'] // Customize as needed
 }));
 
 // basic middleware
