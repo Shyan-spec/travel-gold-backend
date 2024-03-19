@@ -11,7 +11,7 @@ import { router as poiRouter } from './routes/poi.js';
 import { decodeUserFromToken } from './middleware/auth.js';
 
 const app = express();
-const cors = require(cors);
+const cors = cors()
 
 // Configured CORS middleware
 const corsOptions = {
