@@ -1,13 +1,8 @@
-// import npm packages
 import 'dotenv/config.js';
 import express from 'express';
 import logger from 'morgan';
 import cors from 'cors';
-
-// connect to MongoDB with mongoose
 import './config/database.js';
-
-// import routes
 import { router as profilesRouter } from './routes/profiles.js';
 import { router as authRouter } from './routes/auth.js';
 import { router as itinRouter } from './routes/itineraries.js';
@@ -15,15 +10,14 @@ import { router as googsRouter } from './routes/googleApi.js';
 import { router as poiRouter } from './routes/poi.js';
 import { decodeUserFromToken } from './middleware/auth.js';
 
-// create the express app
 const app = express();
 
-// Correctly configured CORS middleware
+// Configured CORS middleware
 app.use(cors({
-  origin: process.env.CORS_ORIGIN, // This dynamically sets the allowed origin
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'] // Customize as needed
+  origin: 'https://teal-pony-b56b44.netlify.app', // Without the trailing slash
+  methods: ['GET', 'PUT', 'POST', 'DELETE'],
+  allowedHeaders: ['Content-Type'],
+  credentials: true // if your frontend sends credentials (cookies, HTTP auth)
 }));
 
 // basic middleware
@@ -46,4 +40,4 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500).json({ err: err.message });
 });
 
-export { app }
+export { app };
