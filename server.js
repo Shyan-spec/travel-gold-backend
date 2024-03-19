@@ -11,17 +11,17 @@ import { router as poiRouter } from './routes/poi.js';
 import { decodeUserFromToken } from './middleware/auth.js';
 
 const app = express();
-const cors = cors()
+
 
 // Configured CORS middleware
 const corsOptions = {
-  origin: `https://teal-pony-b56b44.netlify.app`,
-  credentials: false,
-  optionSuccessStatus: 200
-  }
-  app.use(cors(corsOptions));
+  origin: 'https://teal-pony-b56b44.netlify.app',
+  credentials: true, // Change this based on your needs
+  optionsSuccessStatus: 200
+};
 
 // basic middleware
+app.use(cors(corsOptions));
 app.use(logger('dev'));
 app.use(express.json());
 
