@@ -15,16 +15,10 @@ const app = express();
 
 // Configured CORS middleware
 const corsOptions = {
-  origin: function (origin, callback) {
-    const allowedOrigins = ['https://teal-pony-b56b44.netlify.app', 'https://www.teal-pony-b56b44.netlify.app'];
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-  optionsSuccessStatus: 200
+  origin: 'https://teal-pony-b56b44.netlify.app',
+  optionsSuccessStatus: 200, // For legacy browsers
+  methods: "GET,HEAD,POST,OPTIONS",
+  allowedHeaders: ["Content-Type", "Authorization"]
 };
 
 // basic middleware
