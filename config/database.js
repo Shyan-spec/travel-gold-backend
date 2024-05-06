@@ -1,17 +1,13 @@
-import mongoose from 'mongoose'
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import connectDB from './db.js';
 
-dotenv.config()
+dotenv.config();
+connectDB();
 
 const db = mongoose.connection;
-
-
-mongoose.set('strictQuery', false);
-
-// Use the environment variable from Netlify
-
-mongoose.connect(process.env.DATABASE_URL);
 
 db.on('connected', function () {
   console.log(`Connected to MongoDB ${db.name} at ${db.host}:${db.port}`);
 });
+
