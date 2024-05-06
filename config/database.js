@@ -1,13 +1,10 @@
-import dotenv from 'dotenv';
-import mongoose from 'mongoose';
-import connectDB from './db.js';
+import mongoose from 'mongoose'
 
-dotenv.config();
-connectDB();
+// Load environment variables
 
-const db = mongoose.connection;
-
-db.on('connected', function () {
-  console.log(`Connected to MongoDB ${db.name} at ${db.host}:${db.port}`);
-});
-
+// MongoDB connection URI from environment variable
+const connectionString = process.env.CONNECTION_URI 
+// Connect to MongoDB
+mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log(process.env.CONNECTION_URI ))
+  .catch((error) => console.error('Error connecting to MongoDB:', error));
