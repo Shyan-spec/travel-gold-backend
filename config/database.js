@@ -1,7 +1,6 @@
 import mongoose from 'mongoose'
 
-// Load environment variables
-
+ mongoose.set('strictQuery', false);
 // MongoDB connection URI from environment variable
 const connectionString = process.env.CONNECTION_URI 
 // Connect to MongoDB
