@@ -16,9 +16,7 @@ const app = express();
 // Configured CORS middleware
 const corsOptions = {
   origin: 'https://teal-pony-b56b44.netlify.app',
-  optionsSuccessStatus: 200, // For legacy browsers
-  methods: "GET,HEAD,POST,OPTIONS",
-  allowedHeaders: ["Content-Type", "Authorization"]
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
 // basic middleware
