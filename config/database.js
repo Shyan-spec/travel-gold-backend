@@ -1,11 +1,16 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
-const db = mongoose.connection
+mongoose.connect(process.env.CONNECTION_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-mongoose.set('strictQuery', false)
+const db = mongoose.connection;
 
-mongoose.connect(process.env.CONNECTION_URI)
+db.on('error', (error) => {
+  console.error('MongoDB connection error:', error);
+});
 
-db.on('connected', function () {
-  console.log(`Connected to MongoDB ${db.name} at ${db.host}:${db.port}`)
-})
+db.once('open', () => {
+  console.log(`Connected to MongoDB at ${db.host}:${db.port}`);
+});
