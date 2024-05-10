@@ -34,14 +34,16 @@ app.use('/api/auth', authRouter);
 app.use('/google/api', googsRouter);
 app.use('/itineraries', decodeUserFromToken, itinRouter);
 
-// handle 404 errors
-app.use(function (req, res, next) {
-  res.status(404).json({ err: 'Not found' });
-});
 
 // handle all other errors
 app.use(function (err, req, res, next) {
   res.status(err.status || 500).json({ err: err.message });
 });
+
+// handle 404 errors
+app.use(function (req, res, next) {
+  res.status(404).json({ err: 'Not found' });
+});
+
 
 export { app };
