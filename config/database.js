@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 
-mongoose.connect(process.env.CONNECTION_URI, {
+const Connection = process.env.CONNECTION_URI
+
+mongoose.connect(Connection, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
