@@ -15,8 +15,12 @@ const app = express();
 
 // Configured CORS middleware
 const corsOptions = {
-  origin: 'https://teal-pony-b56b44.netlify.app',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  origin: [
+    'https://travel-gold-frontend-lv4bw6qzr-shyan-walkers-projects.vercel.app/',
+    'http://www.travel-gold.com',
+    'https://www.travel-gold.com'
+  ],
+  optionsSuccessStatus: 200
 };
 
 // basic middleware
