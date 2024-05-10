@@ -14,17 +14,17 @@ const app = express();
 
 
 // Configured CORS middleware
-const corsOptions = {
-  origin: [
-    'https://travel-gold-frontend-lv4bw6qzr-shyan-walkers-projects.vercel.app/',
-    'http://www.travel-gold.com',
-    'https://www.travel-gold.com'
-  ],
-  optionsSuccessStatus: 200
-};
+// const corsOptions = {
+//   origin: [
+//     'https://travel-gold-frontend-lv4bw6qzr-shyan-walkers-projects.vercel.app/',
+//     'http://www.travel-gold.com',
+//     'https://www.travel-gold.com'
+//   ],
+//   optionsSuccessStatus: 200
+// };
 
 // basic middleware
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 
